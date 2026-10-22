@@ -1,0 +1,7 @@
+# Add to /etc/caddy/Caddyfile on the droplet. Replace the app port if needed.
+bd.fundedxyz.com {
+    encode gzip
+    reverse_proxy 127.0.0.1:8099
+}
+# Run the app (persistent data dir) under systemd or PM2, e.g.:
+#   SESSION_SECRET=... TRUST_PROXY=true PORT=8099 DB_PATH=/var/lib/fxbd/dashboard.db node server.js

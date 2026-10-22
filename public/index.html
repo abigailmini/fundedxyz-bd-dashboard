@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<meta name="color-scheme" content="dark"/>
+<title>FundedXYZ — Sales & Affiliate Dashboard</title>
+<link rel="stylesheet" href="/styles.css"/>
+</head>
+<body>
+
+<!-- LOGIN -->
+<div id="login" class="login-wrap">
+  <form class="login-card" id="loginForm" autocomplete="on">
+    <div class="brand"><div class="brand-mark">XYZ</div><div class="brand-name">FundedXYZ</div></div>
+    <div class="brand-sub">BD &amp; Affiliate Sales Dashboard</div>
+    <label for="email">Email</label>
+    <input id="email" name="email" type="email" required autocomplete="username"/>
+    <label for="password">Password</label>
+    <input id="password" name="password" type="password" required autocomplete="current-password"/>
+    <button class="btn block" type="submit">Sign in</button>
+    <div class="err" id="loginErr"></div>
+  </form>
+</div>
+
+<!-- CHANGE PASSWORD -->
+<div id="changePw" class="login-wrap hidden">
+  <form class="login-card" id="changePwForm">
+    <div class="brand"><div class="brand-mark">XYZ</div><div class="brand-name">Set a new password</div></div>
+    <div class="brand-sub">You must change your temporary password to continue.</div>
+    <label>Current / temporary password</label>
+    <input id="curPw" type="password" required autocomplete="current-password"/>
+    <label>New password (8+ characters)</label>
+    <input id="newPw" type="password" required minlength="8" autocomplete="new-password"/>
+    <button class="btn block lime" type="submit">Update password</button>
+    <div class="err" id="cpErr"></div>
+  </form>
+</div>
+
+<!-- APP -->
+<div id="app" class="app hidden">
+  <aside class="side">
+    <div class="brand"><div class="brand-mark">XYZ</div><div class="brand-name">FundedXYZ</div></div>
+    <a class="nav-item active" data-view="overview">Overview</a>
+    <a class="nav-item" data-view="affiliates" id="navAffiliates">Affiliates</a>
+    <a class="nav-item" data-view="leaderboard">Leaderboard</a>
+    <a class="nav-item" data-view="products">Products</a>
+    <a class="nav-item" data-view="admin" id="navAdmin">Admin</a>
+    <div class="side-foot">
+      <div id="whoName" style="color:var(--text);font-weight:600"></div>
+      <div id="whoRole"></div>
+      <a href="#" id="logout" style="color:var(--muted);display:block;margin-top:8px">Sign out</a>
+    </div>
+  </aside>
+  <div class="main">
+    <div class="topbar">
+      <h1 id="viewTitle">Overview</h1>
+      <span class="chip role" id="roleChip"></span>
+      <div class="spacer"></div>
+      <div class="ranges" id="ranges">
+        <button data-r="today">Today</button>
+        <button data-r="7d">7D</button>
+        <button data-r="mtd">MTD</button>
+        <button data-r="all" class="active">All</button>
+      </div>
+      <a class="btn ghost sm" id="exportBtn">Export CSV</a>
+      <a href="#" class="btn ghost sm mobile-only" id="logout2">Out</a>
+    </div>
+    <div class="content" id="content"></div>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+<script src="/app.js"></script>
+</body>
+</html>

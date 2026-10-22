@@ -1,0 +1,19 @@
+{
+  "name": "fundedxyz-bd-dashboard",
+  "version": "0.1.0",
+  "private": true,
+  "description": "FundedXYZ BD / affiliate sales dashboard — role-scoped sales tracking for admins, BDs and affiliates.",
+  "type": "commonjs",
+  "main": "server.js",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "start": "node server.js",
+    "seed": "node src/seed.js",
+    "dev": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.19.2"
+  }
+}

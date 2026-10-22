@@ -1,0 +1,27 @@
+name: fundedxyz-bd-dashboard
+region: sgp
+services:
+  - name: web
+    github:
+      repo: abigailmini/fundedxyz-bd-dashboard
+      branch: main
+      deploy_on_push: true
+    build_command: npm ci --omit=dev
+    run_command: node server.js
+    environment_slug: node-js
+    http_port: 8080
+    instance_size_slug: basic-xxs
+    instance_count: 1
+    health_check:
+      http_path: /health
+    envs:
+      - key: SESSION_SECRET
+        scope: RUN_TIME
+        type: SECRET
+      - key: TRUST_PROXY
+        value: "true"
+      - key: DATA_ADAPTER
+        value: "sample"
+# NOTE: App Platform's filesystem is ephemeral. For durable data use DATA_ADAPTER=sheet
+# (re-imports on boot/interval) or attach a managed Postgres + a PgAdapter. The default
+# node:sqlite file resets on redeploy.
