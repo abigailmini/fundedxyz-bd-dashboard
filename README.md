@@ -1,5 +1,24 @@
 # FundedXYZ BD / Affiliate Sales Dashboard
 
+## Live static demo (GitHub Pages)
+**https://abigailmini.github.io/fundedxyz-bd-dashboard/** — a static, sample-data prototype (`/docs`).
+Demo password for all accounts: `demo2026`.
+
+| Role | Login | Sees |
+|---|---|---|
+| Admin | davidyangmini@gmail.com | everything (all BDs, affiliates, totals) |
+| Admin | khongming@unitycrypto.com | everything |
+| BD | kate@fundedxyz.com | only her 7 affiliates + team total + commission |
+| Affiliate | cupwinner@fundedxyz.com | only XYZCUPB1F1 sales + commission |
+| Affiliate | xmode@fundedxyz.com | only XMODEB1F1 sales + commission |
+
+The Pages build is a **prototype**: "auth" and role scoping run client-side on sample data only
+(swap `docs/data.js` for `fetch('/api/...')` later). **Real access control is enforced server-side**
+in the Node version below — the browser demo must not be treated as secure.
+
+---
+
+
 Role-scoped sales tracking for FundedXYZ business development. Admins see everything; BDs see only their own
 affiliates and team totals; affiliates see only their own referred sales and commission. **All role scoping is
 enforced server-side** (never hidden only in the UI).
